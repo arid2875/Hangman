@@ -1,0 +1,26 @@
+--- !ruby/object:Hangman
+random_word:
+- l
+- o
+- v
+- a
+- b
+- l
+- e
+board:
+- _
+- o
+- _
+- a
+- _
+- _
+- e
+guessed_letters:
+- a
+- s
+- i
+- e
+- o
+- r
+- t
+remaining_guesses: 4
