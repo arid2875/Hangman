@@ -1,38 +1,30 @@
 
 require 'sinatra'
-
+require_relative 'hangman'
 get '/' do
       
-  create
-  #@guess = params["guess"].downcase    
-  erb :index, :locals => {:guesses = @remaining_guesses} 
+  hangman = Hangman.new
+  guess = params["guess"].downcase
+  hangman.validate_guess(guess)    
+  erb :index, :locals => {:guesses => hangman.remaining_guesses, :board => hangman.display_board, :guessed => hangman.display_guessed_letters} 
+  
+  # def take_turn(guess)          
+  #   display_board
+  #   display_guessed_letters         
+  #   validate_guess(guess)          
+  # end
 
 end
 
 
 
-helpers do
 
-  def load_dictionary
-    dictionary = []
-  	File.readlines('dictionary.txt').each do |line| 
-  	  if line.chomp.length.between?(5,12)
-  		  dictionary << line.chomp
-  	  end
-    end
-    dictionary
-  end  
 
-  def create(guesses=8)
-    
-    @random_word = @@dictionary[rand(@@dictionary.length-1)].downcase.split("")
-    @board = []
-    @guessed_letters = []
-    @remaining_guesses = guesses
-    @random_word.each do
-  	  @board << "_"
-    end
-  end
 
-end
+
+  
+
+
+
+
 
