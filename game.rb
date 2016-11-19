@@ -2,10 +2,10 @@
 require 'sinatra'
 
 get '/' do
-#   message = "hi"     
+  message = "hi"     
 #   # create
 #   # @guess = params["guess"].downcase    
-   'hi' 
+  erb :index  
 
 end
 
