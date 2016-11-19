@@ -101,32 +101,32 @@ class Hangman
   #   abort
   # end
 
-  def game_over?
-    if @hangman.remaining_guesses == 0 || !@hangman.board.include?("_")
-      true
-    else
-      false
-    end
-  end
+  # def game_over?
+  #   if @hangman.remaining_guesses == 0 || !@hangman.board.include?("_")
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
-  def display_winner
+  # def display_winner
 
-    @hangman.board = @hangman.random_word.join("")
-    message = ''
-    if @hangman.remaining_guesses > 0   
-      message = "Player wins!"
-    else
-      message = "Computer wins"
-    end
-    message
-  end
+  #   @hangman.board = @hangman.random_word.join("")
+  #   message = ''
+  #   if @hangman.remaining_guesses > 0   
+  #     message = "Player wins!"
+  #   else
+  #     message = "Computer wins"
+  #   end
+  #   message
+  # end
 
   def display_board
-    @hangman.board.join(" ")  
+    @board.join(" ")  
   end
 
   def display_guessed_letters
-    @hangman.guessed_letters.sort.join(",")
+    @guessed_letters.sort.join(",")
   end
 
   def validate_guess(guess)
