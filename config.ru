@@ -1,2 +1,2 @@
-require './Game'
+require './game'
 run Sinatra::Application
