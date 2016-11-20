@@ -132,7 +132,7 @@ class Hangman
   def validate_guess(guess)
     message = ''
     if (guess.length == 1 && guess.is_a?(String))
-      if @hangman.guessed_letters.include? guess
+      if @guessed_letters.include? guess
         message = "You've already guessed the letter '#{guess}'"    
       else
         message = guess_letter(guess)
@@ -145,19 +145,19 @@ class Hangman
 
   def guess_letter(guess)
 
-    @hangman.guessed_letters << guess 
-    correct? = false
+    @guessed_letters << guess 
+    correct = false
     message = ''
-    @hangman.random_word.each_with_index do |letter, index|
+    @random_word.each_with_index do |letter, index|
       if letter == guess
-        @hangman.board[index] = letter
-        correct? = true
+        @board[index] = letter
+        correct = true
         message = "There is an #{guess}!"
       end    
     end
     
-    unless correct?     
-      @hangman.remaining_guesses -= 1
+    unless correct     
+      @remaining_guesses -= 1
       message = "No '#{guess}'"
     end
     message
