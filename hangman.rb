@@ -5,7 +5,7 @@ class Hangman
 
   def initialize(guesses=8)
     dictionary = load_dictionary
-    @random_word = dictionary[rand(@@dictionary.length-1)].downcase.split("")
+    @random_word = dictionary[rand(dictionary.length-1)].downcase.split("")
     @board = []
     @guessed_letters = []
     @remaining_guesses = guesses
