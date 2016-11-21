@@ -3,7 +3,7 @@ require_relative 'hangman'
 
 # enable :sessions
 # set :session_secret, 'hellothere12345'
-@@hangman = Hangman.new
+start
 
 get '/' do  
   
@@ -17,6 +17,10 @@ get '/' do
   #   validate_guess(guess)          
   # end
 
+end
+
+def start 
+  @@hangman = Hangman.new
 end
 
 
