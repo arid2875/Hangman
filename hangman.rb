@@ -108,8 +108,7 @@ class Hangman
   end
 
   def display_winner
-
-    @board = @random_word.join("")
+    
     message = ''
     if @remaining_guesses > 0   
       message = "Player wins!"
