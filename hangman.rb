@@ -99,25 +99,25 @@ class Hangman
   #   abort
   # end
 
-  # def game_over?
-  #   if @hangman.remaining_guesses == 0 || !@hangman.board.include?("_")
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
+  def game_over?
+    if @hangman.remaining_guesses == 0 || !@hangman.board.include?("_")
+      true
+    else
+      false
+    end
+  end
 
-  # def display_winner
+  def display_winner
 
-  #   @hangman.board = @hangman.random_word.join("")
-  #   message = ''
-  #   if @hangman.remaining_guesses > 0   
-  #     message = "Player wins!"
-  #   else
-  #     message = "Computer wins"
-  #   end
-  #   message
-  # end
+    @hangman.board = @hangman.random_word.join("")
+    message = ''
+    if @hangman.remaining_guesses > 0   
+      message = "Player wins!"
+    else
+      message = "Computer wins"
+    end
+    message
+  end
 
   def display_board
     @board.join(" ")  
@@ -133,6 +133,7 @@ class Hangman
       if @guessed_letters.include? guess
         message = "You've already guessed the letter '#{guess}'"    
       else
+        if 
         message = guess_letter(guess)
       end
     else 
@@ -150,14 +151,16 @@ class Hangman
       if letter == guess
         @board[index] = letter
         correct = true
-        message = "There is an #{guess}!"
+        message = "There is an '#{guess}'! "                  
       end    
     end
     
     unless correct     
       @remaining_guesses -= 1
-      message = "No '#{guess}'"
+      message = "No '#{guess}' "
     end
+    message += display_winner if game_over?
+    
     message
   end
 
