@@ -132,8 +132,7 @@ class Hangman
     if (guess.length == 1 && guess.is_a?(String))
       if @guessed_letters.include? guess
         message = "You've already guessed the letter '#{guess}'"    
-      else
-        if 
+      else         
         message = guess_letter(guess)
       end
     else 
@@ -160,7 +159,7 @@ class Hangman
       message = "No '#{guess}' "
     end
     message += display_winner if game_over?
-    
+
     message
   end
 
