@@ -100,7 +100,7 @@ class Hangman
   # end
 
   def game_over?
-    if @hangman.remaining_guesses == 0 || !@hangman.board.include?("_")
+    if @remaining_guesses == 0 || !@board.include?("_")
       true
     else
       false
@@ -109,9 +109,9 @@ class Hangman
 
   def display_winner
 
-    @hangman.board = @hangman.random_word.join("")
+    @board = @random_word.join("")
     message = ''
-    if @hangman.remaining_guesses > 0   
+    if @remaining_guesses > 0   
       message = "Player wins!"
     else
       message = "Computer wins"
@@ -158,7 +158,7 @@ class Hangman
       @remaining_guesses -= 1
       message = "No '#{guess}' "
     end
-    message += display_winner if game_over?
+    message << display_winner if game_over?
 
     message
   end
