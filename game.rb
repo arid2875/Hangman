@@ -3,7 +3,7 @@ require_relative 'hangman'
 
 # enable :sessions
 # set :session_secret, 'hellothere12345'
-start
+@@hangman = Hangman.new
 
 get '/' do  
   
@@ -19,19 +19,6 @@ get '/' do
 
 end
 
-def start 
+def refresh
   @@hangman = Hangman.new
 end
-
-
-
-
-
-
-
-  
-
-
-
-
-
