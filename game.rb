@@ -2,11 +2,13 @@
 require 'sinatra'
 require_relative 'hangman'
 
-enable :sessions
-set :session_secret, 'hellothere12345'
+# enable :sessions
+# set :session_secret, 'hellothere12345'
+@hangman = Hangman.new
+
 get '/' do
       
-  session[:hangman] = Hangman.new
+  
   @hangman = session[:hangman]
   guess = params["guess"].to_s.downcase
   message = @hangman.validate_guess(guess)    
