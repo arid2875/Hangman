@@ -149,7 +149,7 @@ class Hangman
       if letter == guess
         @board[index] = letter
         correct = true
-        message = "There is an '#{guess}'! "                  
+        message = "There is a '#{guess}'! "                  
       end    
     end
     
